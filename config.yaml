@@ -1,0 +1,31 @@
+input:
+  mqtt:
+    urls:
+      - tcp://10.6.4.112:11883
+    topics:
+      - 'FMS01/0/EAF/#'
+    client_id: benthos_input
+
+pipeline: 
+  processors:
+    - bloblang: |
+        root.eventdata = this.string()
+        root.eventtype = "message"
+        root.eventid = uuid_v4()
+        root.aggregateid = uuid_v4()
+        root.aggregatetype = "create"
+        root.destination = ["test-benthos-celsa-france-eaf"]
+        root.channel = "mqtt"
+        root.createdon = timestamp_unix()
+      
+output:     
+  nats:
+    urls:
+      - nats://10.6.6.73:4222
+    subject: event.fms01.0.eaf
+
+
+# output:
+#   stdout:
+#     delimiter: ""
+

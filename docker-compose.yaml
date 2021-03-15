@@ -1,0 +1,9 @@
+version: '3.8'
+
+services: 
+  benthos-tpa: 
+    image: 'jeffail/benthos'
+    volumes:
+      - './config.yaml:/config.yaml' 
+      - './test.json:/test.json'
+    command: -c /config.yaml
