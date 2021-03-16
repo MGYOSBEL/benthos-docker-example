@@ -1,3 +1,10 @@
 {
-    "foo": "Hello World!"
+    "aggregateid": "3058e611-70b1-40a1-9d9d-fd7093e0f239",
+    "aggregatetype": "message",
+    "channel": "mqtt",
+    "createdon": 1615812336,
+    "destination": "test-benthos-celsa-france-eaf",
+    "eventdata": "{\"d\":90.9,\"dt\":4,\"q\":192,\"ts\":\"2021-03-15T12:45:38.424000Z\"}",
+    "eventid": "4263b2b1-161d-4cea-9954-423900731cf5",
+    "eventtype": "create"
 }
